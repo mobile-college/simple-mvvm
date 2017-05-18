@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>MVVM-V1</title>
+<meta charset="utf-8">
+</head>
+<body>
+
+<div id="mvvm-app">
+  <input type="text" mvvm-model="hello world" mvvm-method="onchange">
+  <p mvvm-view="hello world" mvvm-method="html"></p>
+</div>
+
+<script src="./js/observer.js"></script>
+<script src="./js/injection.js"></script>
+<script src="./js/watcher.js"></script>
+<script src="./js/compiler.js"></script>
+<script src="./js/mvvm.js"></script>
+<!--
+-->
+<script>
+/*
+ * View - ViewModel - Model
+ *
+ */
+
+var vm = new MVVM({
+  el: '#mvvm-app',
+  data: {
+    'hello world': 'hello world'
+  },
+  methods: {
+    onchange: function (e) {
+
+    },
+    html: function (el, context) {
+      console.log('el:' + el + ', context: ' + context);
+      el.innerHTML = context;
+    }
+  }
+
+});
+
+
+</script>
+</body>
+</html>
